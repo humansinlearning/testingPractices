@@ -1,0 +1,3 @@
+[submodule "clean-code"]
+	path = clean-code
+	url = https://github.com/humansinlearning/testingPractices
