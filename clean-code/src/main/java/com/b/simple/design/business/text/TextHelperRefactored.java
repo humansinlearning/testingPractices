@@ -16,7 +16,7 @@ public class TextHelperRefactored {
 		return restOfTheString + lastChar + secondLastChar;
 		
 	}
-
+//Truncate A in first 2 positions of a String
 	public String truncateAInFirst2Positions(String str) {
 		
 		if(str.length()<2) 

@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Movie {
 
-    private static final List<String> VALID_BS = Arrays.asList("B1", "B2", "B3", "B4");
     String rating;
+    List<String> BLIST = Arrays.asList("B1", "B2", "B3", "B4");
 
     public Movie(String rating) {
         super();
@@ -23,30 +23,29 @@ public class Movie {
     Where x represents any digit between 0 and 9, and y represents 
     any digit between 1 and 4*/
     public boolean isValidRating() {
-
         if (rating == null) {
             return false;
         }
-
-        if (isAValid()) {
+        if (isValidARating()) {
             return true;
         }
-        if (isBValid()) {
+        return isValidBRating();
+    }
+
+    private boolean isValidBRating() {
+        return BLIST.contains(rating);
+    }
+
+    private boolean isValidARating() {
+
+        if (this.getRating().substring(0, 1).equalsIgnoreCase("A")
+                && this.getRating().length() == 3
+                && StringUtils.isNumeric(this.getRating().substring(1, 3))) {
             return true;
         }
         return false;
     }
 
-
-    private boolean isBValid() {
-        return VALID_BS.contains(rating);
-    }
-
-    private boolean isAValid() {
-        return this.getRating().substring(0, 1).equalsIgnoreCase("A")
-                && this.getRating().length() == 3
-                && StringUtils.isNumeric(this.getRating().substring(1, 3));
-    }
 
     public void setRating(String rating) {
         this.rating = rating;
